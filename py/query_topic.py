@@ -1,4 +1,4 @@
-from query_preprocessing import add_synonyms, add_stemming_token, remove_symbols
+from py.query_preprocessing import add_synonyms, add_stemming_token, remove_symbols
 
 import numpy as np
 import pandas as pd
