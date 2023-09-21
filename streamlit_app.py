@@ -1,11 +1,11 @@
-from query_topic import searchTopic, searchPaper
-from html_custom import set_background
+from py.query_topic import searchTopic, searchPaper
+from py.html_custom import set_background
 
 import streamlit as st
 import pandas as pd
 import numpy as np
 
-set_background('background.png')
+set_background('./pic/background.png')
 
 st.header('NLPThemeWaver')
 st.write("Search one NLP topic and see how it connects with others.")
@@ -30,7 +30,7 @@ with tab1:
 
     if st.button('Submit', key="topic_query"): # type="primary"
         with st.spinner("Querying..."):
-            i2t_filename = '../id_topic.csv'
+            i2t_filename = './document/id_topic.csv'
             querying = searchTopic(query_topic, int(top_n), i2t_filename)
             topic_result = querying.query_to_topic()
 
@@ -63,8 +63,8 @@ with tab2:
 
     if st.button('Submit', key="paper_query"):
         with st.spinner("Querying..."):
-            i2p_filename = '../document_topic.csv'
-            origin_filename = '../ACL_Anthology_(092023).csv'
+            i2p_filename = './document/id_paper.csv'
+            origin_filename = './document/ACL_Anthology_(092023).csv'
 
             searching = searchPaper(query_topic, topic_id, int(paper_number), i2p_filename, origin_filename)
             paper_result = searching.get_related_paper()
